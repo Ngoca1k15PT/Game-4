@@ -62,13 +62,13 @@ const GameScreen = ({ onClose }) => {
         let currentScore = 0
         if (item4 == item5 && item5 == item6) {
             currentScore = yourBet * 5
-            setResult('YOU WON ' + currentScore)
+            setResult('YWON ' + currentScore)
         } else if (item4 == item5 || item5 == item6 || item4 == item6) {
             currentScore = yourBet * 2
-            setResult('YOU WON ' + currentScore)
+            setResult('WON ' + currentScore)
         } else {
             currentScore = -yourBet
-            setResult('YOU LOSE ' + yourBet)
+            setResult('LOSE ' + yourBet)
         }
         setScore((preScore) => preScore + currentScore)
     }
@@ -200,33 +200,32 @@ const GameScreen = ({ onClose }) => {
                     </View>
                 </View>
                 <View style={styles.bottomView}>
-                    <TouchableOpacity
-                        style={{
-                            // backgroundColor: 'red',
-                            height: '100%',
-                            width: '8%'
-                        }}
-                    />
+                    <Text style={styles.score}>{score}</Text>
                     <TouchableOpacity
                         onPress={handleMinusBet}
                         style={{
                             // backgroundColor: 'blue',
-                            height: '100%',
-                            width: '8%'
+                            height: '60%',
+                            width: '5%',
+                            marginTop: 22,
+                            marginLeft: '3%'
                         }}
                     />
                     <View
                         style={{
-                            width: '11%',
+                            // backgroundColor: 'blue',
+                            width: '5%',
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
+                            marginHorizontal: 10
                         }}
                     >
                         <Text
                             style={{
                                 color: 'white',
-                                fontSize: 12,
-                                marginTop: 22
+                                // fontSize: 12,
+                                marginTop: 22,
+                                fontWeight: 'bold'
                             }}
                         >
                             {yourBet}
@@ -237,14 +236,15 @@ const GameScreen = ({ onClose }) => {
                         style={{
                             // backgroundColor: 'blue',
                             height: '100%',
-                            width: '8%'
+                            width: '5%'
                         }}
                     />
                     <View
                         style={{
                             justifyContent: 'center',
                             alignItems: 'center',
-                            width: '23%'
+                            width: '20%',
+                            marginTop: 10
                         }}
                     >
                         <Text
@@ -263,16 +263,28 @@ const GameScreen = ({ onClose }) => {
                         onPress={() => setYourBet(score)}
                         style={{
                             // backgroundColor: 'blue',
-                            height: '100%',
-                            width: '11%'
+                            height: '60%',
+                            width: '9%',
+                            marginTop: 15,
+                            marginLeft: '2%'
                         }}
                     />
                     <TouchableOpacity
                         onPress={handleSpin}
                         style={{
                             // backgroundColor: 'red',
-                            height: '100%',
-                            width: '17%'
+                            height: '80%',
+                            width: '15%',
+                            marginTop: 10
+                        }}
+                    />
+                     <TouchableOpacity
+                        onPress={handleSpin}
+                        style={{
+                            // backgroundColor: 'red',
+                            height: '80%',
+                            width: '9%',
+                            marginTop: 10
                         }}
                     />
                 </View>
@@ -305,7 +317,8 @@ const styles = StyleSheet.create({
         // backgroundColor: 'green',
         opacity: 1,
         flexDirection: 'row',
-        paddingLeft: '12%'
+        paddingLeft: '13%',
+        alignItems: 'center'
     },
     itemImg: {
         // backgroundColor: '#dbdbdb',
@@ -314,8 +327,11 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     score: {
-        left: '130%',
-        marginTop: '1.4%',
-        color: 'white'
+        // marginTop: '1.4%',
+        color: 'white',
+        // backgroundColor: 'red',
+        marginHorizontal: 20,
+        marginTop: 22,
+        fontWeight: 'bold'
     }
 })
